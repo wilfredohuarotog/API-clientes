@@ -1,0 +1,45 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: api_clientes
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - spring-network
+
+
+  db:
+    image: mysql:latest
+    container_name: mysql_db
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_DATABASE: clientes
+      MYSQL_ROOT_PASSWORD: root1234
+      MYSQL_USER: will
+      MYSQL_PASSWORD: will1234
+    volumes:
+      - mysql-volume:/var/lib/mysql
+    networks:
+      - spring-network
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost", "-p$MYSQL_ROOT_PASSWORD" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  spring-network:
+    driver: bridge
+volumes:
+  mysql-volume:
+
+
+
