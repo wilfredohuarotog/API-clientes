@@ -42,7 +42,7 @@ spring.datasource.password=${DB_PASSWORD}
 mvn spring-boot:run
 ```
 ### 5. Accede a la documentación
-`<link>`: http://localhost:8080/swagger-ui.html.
+`Documentación`: http://localhost:8080/swagger-ui.html.
 
 ## Despliegue en docker
 ### 1. Generar las imagenes y levantar el servicios del docker-compose.yml
