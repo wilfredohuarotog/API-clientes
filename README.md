@@ -24,11 +24,12 @@ Proyecto backend desarrollado con **Java y Spring Boot**, que expone un CRUD com
 ## Ejecución del proyecto
 
 ### 1. Clonar el repositorio
-```bash
+```
 git clone https://github.com/wilfredohuarotog/API-RESTful.git
 ```
+
 ### 2. Ingresar al directorio
-```bash
+```
 cd clientes
 ```
 ### 2. Ejecutar el comando 
