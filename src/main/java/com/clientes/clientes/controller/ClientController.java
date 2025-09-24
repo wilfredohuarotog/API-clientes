@@ -16,7 +16,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping ("/api/v1")
+@RequestMapping ("/api/v1/clientes")
 @Tag(
         name = "Clientes controlador",
         description = "CRUD de clientes. Permite listar, crear, actualizar, buscar y eliminar clientes en el sistema."
@@ -29,7 +29,7 @@ public class ClientController {
             summary = "Listar clientes",
             description = "Se obtiene la lista completa de clientes registrados"
     )
-    @GetMapping("/clientes")
+    @GetMapping
     public ResponseEntity<List<ClientDto>> allClients(){
         return new ResponseEntity<>(clientService.findAll(), HttpStatus.OK) ;
     }
@@ -38,7 +38,7 @@ public class ClientController {
             summary = "Cliente por ID",
             description = "Se obtiene un cliente por su ID"
     )
-    @GetMapping ("/clientes/{id}")
+    @GetMapping ("/{id}")
     public ResponseEntity<ClientDto> findById(@PathVariable Integer id){
 
         ClientDto clientDto= clientService.findById(id).orElseThrow(
@@ -51,7 +51,7 @@ public class ClientController {
             summary = "Guardar",
             description = "Se guarda un nuevo cliente"
     )
-    @PostMapping ("/clientes/nuevo")
+    @PostMapping
     public ResponseEntity<?> saveClient(@Valid @RequestBody ClientDto clientDto){
 
         clientService.saveClient(clientDto);
@@ -62,17 +62,17 @@ public class ClientController {
             summary = "Actualizar",
             description = "Se actualiza los datos de un cliente identificandolo por el ID"
     )
-    @PutMapping ("/clientes/actualizar/{id}")
+    @PutMapping ("/{id}")
     public ResponseEntity<ClientDto> updateClient( @PathVariable Integer id, @Valid @RequestBody ClientDto clientDto){
         return ResponseEntity.ok(clientService.updateClient(id,clientDto));
     }
 
     @Operation(summary = "Eliminar",
             description = "Se elimina un cliente identificando por su ID")
-    @DeleteMapping ("/clientes/eliminar/{id}")
+    @DeleteMapping ("{id}")
     public ResponseEntity<?> deleteClient(@PathVariable Integer id){
         clientService.deleteById(id);
-        return ResponseEntity.ok("Cliente eliminado");
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
 }

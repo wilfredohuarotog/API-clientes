@@ -1,0 +1,2 @@
+INSERT INTO cliente ( nombre, apellido, correo, edad) VALUES ('Jose', 'Medina', 'josem@gmail.com', 34);
+INSERT INTO cliente ( nombre, apellido, correo, edad) VALUES ('Maria', 'Moreno', 'moreno@gmail.com', 34);
