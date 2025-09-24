@@ -2,7 +2,7 @@
 
 Proyecto backend desarrollado con **Java y Spring Boot**, que expone un CRUD completo para la gestión de clientes mediante una API REST.
 
-## Tecnologías utilizadas
+## Tecnologías y herramientas utilizadas
 - Java 17
 - Spring Boot (Web, Data JPA, Validation, Lombok)
 - Hibernate
@@ -10,13 +10,15 @@ Proyecto backend desarrollado con **Java y Spring Boot**, que expone un CRUD com
 - Maven
 - Docker & Docker Compose
 - Swagger/OpenAPI
+- Postman
 
 ## Funcionalidades principales
 - Crear un cliente  
 - Listar clientes  
 - Consultar cliente por ID  
 - Actualizar cliente  
-- Eliminar cliente  
+- Eliminar cliente
+- Manejo de excepciones
 - Documentación automática de endpoints con Swagger  
 
 ## Ejecución del proyecto
@@ -24,3 +26,15 @@ Proyecto backend desarrollado con **Java y Spring Boot**, que expone un CRUD com
 ### 1. Clonar el repositorio
 ```bash
 git clone https://github.com/wilfredohuarotog/API-RESTful.git
+
+### 2. Ingresar al directorio
+```bash
+cd clientes
+
+### 2. Ejecutar el comando 
+```bash
+mvn spring-boot:run
+
+
+
+
