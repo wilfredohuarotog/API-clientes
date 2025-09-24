@@ -31,7 +31,7 @@ git clone https://github.com/wilfredohuarotog/API-RESTful.git
 ```
 cd clientes
 ```
-### 3. Configuración de variables de entorno del aplication.properties
+### 3. Configuración de variables de entorno del application.properties
 ```
 spring.datasource.url=${DB_URL}
 spring.datasource.username=${DB_USER}
@@ -53,5 +53,10 @@ docker compose up -build -d
 ```
 docker compose down
 ```
-
-
+## Uso
+### Endpoints
+- Obtener lista de clientes: `GET http://localhost:8080/api/v1/clientes`
+- Obtener cliente por ID: `GET http://localhost:8080/api/v1/clientes/{id}`
+- Guardar/crear un cliente: `POST http://localhost:8080/api/v1/clientes`
+- Actualizar datos de un cliente por su ID: `PUT http://localhost:8080/api/v1/clientes/{id}`
+- Eliminar un cliente por su ID: `DELETE http://localhost:8080/api/v1/clientes/{id}`
