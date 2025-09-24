@@ -8,7 +8,7 @@ RUN mvn dependency:go-offline
 
 COPY ./src /app/src
 
-RUN mvn clean install -DskipTests
+RUN mvn clean package -DskipTests
 
 FROM eclipse-temurin:17-jdk-alpine-3.22
 

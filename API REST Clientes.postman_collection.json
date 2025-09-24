@@ -1,0 +1,180 @@
+{
+	"info": {
+		"_postman_id": "a8ca6c82-bc70-4135-a55f-7eb91f882d1a",
+		"name": "API REST Clientes",
+		"description": "API de gestión de clientes. Pruebas del CRUD implementado y de la lógica de negocio \"los correos de los clientes deben ser unicos\".",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46041910",
+		"_collection_link": "https://wilfredo-3775460.postman.co/workspace/39c6f0ac-393c-499e-89b9-5b9721494a66/collection/46041910-a8ca6c82-bc70-4135-a55f-7eb91f882d1a?action=share&source=collection_link&creator=46041910"
+	},
+	"item": [
+		{
+			"name": "API Clientes",
+			"item": [
+				{
+					"name": "Lista de clientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"clientes"
+							]
+						},
+						"description": "Endpoint para listar todos los clientes."
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Cliente por Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/clientes/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"clientes",
+								"3"
+							]
+						},
+						"description": "Endpoint para buscar un cliente por su ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Guardar Cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Jesus\",\r\n    \"lastName\": \"Martinez\",\r\n    \"email\": \"1234@gmail.com\",\r\n    \"age\": 24\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"clientes"
+							]
+						},
+						"description": "Endpoint para guardar un nuevo cliente."
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar cliente",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Jorge\",\r\n    \"lastName\": \"Ramirez\",\r\n    \"email\": \"jrgee@gmail.com\",\r\n    \"age\": 34\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/clientes/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"clientes",
+								"2"
+							]
+						},
+						"description": "Endpoint para actualizar los datos de un cliente identificandolo por su ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Cliente por Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/clientes/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"clientes",
+								"2"
+							]
+						},
+						"description": "Endpoint para eliminar un cliente por su ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Error: Email ya existente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Valeria\",\r\n    \"lastName\": \"Garcia\",\r\n    \"email\": \"josem@gmail.com\",\r\n    \"age\": 28\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"clientes"
+							]
+						},
+						"description": "Endpoint para guardar un cliente. La presente prueba envia el error 400 \"Bad Request\" por introducir un correo ya perteneciente a otro cliente."
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints para listar, buscar, crear, actualizar y eliminar clientes."
+		}
+	]
+}

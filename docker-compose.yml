@@ -11,6 +11,10 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/clientes
+      SPRING_DATASOURCE_USERNAME: will
+      SPRING_DATASOURCE_PASSWORD: will1234
     networks:
       - spring-network
 
