@@ -27,15 +27,31 @@ Proyecto backend desarrollado con **Java y Spring Boot**, que expone un CRUD com
 ```
 git clone https://github.com/wilfredohuarotog/API-RESTful.git
 ```
-
 ### 2. Ingresar al directorio
 ```
 cd clientes
 ```
-### 2. Ejecutar el comando 
-```bash
+### 3. Configuración de variables de entorno del aplication.properties
+```
+spring.datasource.url=${DB_URL}
+spring.datasource.username=${DB_USER}
+spring.datasource.password=${DB_PASSWORD}
+```
+### 4. Ejecutar 
+```
 mvn spring-boot:run
 ```
+### 5. Accede a la documentación
+`<link>`: http://localhost:8080/swagger-ui.html.
 
+## Despliegue en docker
+### 1. Generar las imagenes y levantar el servicios del docker-compose.yml
+```
+docker compose up -build -d
+```
+### 2. Detener la ejecución
+```
+docker compose down
+```
 
 
