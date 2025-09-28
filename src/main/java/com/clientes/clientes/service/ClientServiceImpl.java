@@ -26,15 +26,17 @@ public class ClientServiceImpl implements ClientService{
     public List<ClientDto> findAll() {
         List<Client> clients = clientRepository.findAll();
             return clients.stream()
-                .map(client -> clientMapper.toDto(client))
+                .map(clientMapper::toDto)
                 .toList();
     }
 
     @Override
-    public Optional<ClientDto> findById(Integer id) {
+    public ClientDto findById(Integer id) {
 
-        return clientRepository.findById(id)
-                .map(clientMapper::toDto);
+        Client client = clientRepository.findById(id)
+                .orElseThrow(()->new ResourceNotFoundException("No existe el cliente con el ID: "+ id));
+
+        return clientMapper.toDto(client);
     }
 
     @Override
@@ -57,7 +59,8 @@ public class ClientServiceImpl implements ClientService{
 
         clientRepository.findByEmail(clientDto.getEmail())
                 .filter(c->!c.getId().equals(id))
-                .ifPresent(c -> {throw new BadRequestException("El email ya existe");});
+                .ifPresent(c -> {throw new BadRequestException("El email ya existe");
+                });
 
         client.setFirstName(clientDto.getFirstName());
         client.setAge(clientDto.getAge());

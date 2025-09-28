@@ -40,11 +40,7 @@ public class ClientController {
     )
     @GetMapping ("/{id}")
     public ResponseEntity<ClientDto> findById(@PathVariable Integer id){
-
-        ClientDto clientDto= clientService.findById(id).orElseThrow(
-                ()->new ResourceNotFoundException("No existe el usuario con ese ID")
-        );
-        return ResponseEntity.ok(clientDto);
+        return ResponseEntity.ok(clientService.findById(id));
     }
 
     @Operation(

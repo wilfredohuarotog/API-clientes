@@ -11,7 +11,7 @@ public interface ClientService {
 
     List<ClientDto> findAll();
 
-    Optional<ClientDto> findById(Integer id);
+    ClientDto findById(Integer id);
 
     void saveClient (ClientDto clientdto);
 

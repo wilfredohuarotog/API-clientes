@@ -1,7 +1,5 @@
-package com.clientes.clientes.controller;
+package com.clientes.clientes.exceptions;
 
-import com.clientes.clientes.exceptions.BadRequestException;
-import com.clientes.clientes.exceptions.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
