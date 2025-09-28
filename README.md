@@ -2,7 +2,7 @@
 
 Proyecto backend desarrollado con **Java y Spring Boot**, que expone un CRUD completo para la gestión de clientes mediante una API REST.
 
-## Tecnologías utilizadas
+## Tecnologías y herramientas utilizadas
 - Java 17
 - Spring Boot (Web, Data JPA, Validation, Lombok)
 - Hibernate
@@ -10,17 +10,53 @@ Proyecto backend desarrollado con **Java y Spring Boot**, que expone un CRUD com
 - Maven
 - Docker & Docker Compose
 - Swagger/OpenAPI
+- Postman
 
 ## Funcionalidades principales
 - Crear un cliente  
 - Listar clientes  
 - Consultar cliente por ID  
 - Actualizar cliente  
-- Eliminar cliente  
+- Eliminar cliente
+- Manejo de excepciones
 - Documentación automática de endpoints con Swagger  
 
 ## Ejecución del proyecto
 
 ### 1. Clonar el repositorio
-```bash
+```
 git clone https://github.com/wilfredohuarotog/API-RESTful.git
+```
+### 2. Ingresar al directorio
+```
+cd clientes
+```
+### 3. Configuración de variables de entorno del application.properties
+```
+spring.datasource.url=${DB_URL}
+spring.datasource.username=${DB_USER}
+spring.datasource.password=${DB_PASSWORD}
+```
+### 4. Ejecutar 
+```
+mvn spring-boot:run
+```
+### 5. Accede a la documentación
+`Documentación`: http://localhost:8080/swagger-ui.html.
+
+## Despliegue en docker
+### 1. Generar las imagenes y levantar el servicios del docker-compose.yml
+```
+docker compose up -build -d
+```
+### 2. Detener la ejecución
+```
+docker compose down
+```
+## Uso
+### Endpoints
+- Obtener lista de clientes: `GET http://localhost:8080/api/v1/clientes`
+- Obtener cliente por ID: `GET http://localhost:8080/api/v1/clientes/{id}`
+- Guardar/crear un cliente: `POST http://localhost:8080/api/v1/clientes`
+- Actualizar datos de un cliente por su ID: `PUT http://localhost:8080/api/v1/clientes/{id}`
+- Eliminar un cliente por su ID: `DELETE http://localhost:8080/api/v1/clientes/{id}`
