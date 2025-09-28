@@ -11,6 +11,8 @@ Proyecto backend desarrollado con **Java y Spring Boot**, que expone un CRUD com
 - Docker & Docker Compose
 - Swagger/OpenAPI
 - Postman
+- Junit5
+- Mockito
 
 ## Funcionalidades principales
 - Crear un cliente  
